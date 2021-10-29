@@ -22,20 +22,25 @@ class DevelopmentConfig(Config):
 
 
 class TestingConfig(Config):
+    # print(Path)
     DEBUG = True
     TESTING = True
     PRESERVE_CONTEXT_ON_EXCEPTION = False
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "db.sqlite")
+    DB_PATH = os.path.join(basedir, "test_db.sqlite")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + DB_PATH
+
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-# class ProductionConfig(Config):
-#     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data.sqlite'
+class ProductionConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(
+        basedir, 'data.sqlite'
+    )
 
 
 config = {
     "development": DevelopmentConfig,
     "testing": TestingConfig,
-    # 'production': ProductionConfig,
+    'production': ProductionConfig,
     "default": DevelopmentConfig,
 }

@@ -36,7 +36,7 @@ class User(Resource):
         if task:
             task.delete_from_db()
             logger.info(f"task of Id {taskId} deleted")
-            return {"message": "Task Deleted successfully"}, 200
+            return {"message": "Task Deleted successfully"}, 202
         return {"message": TASK_NOT_FOUND}, 404
 
     @api.doc("Update Task")
@@ -57,7 +57,9 @@ class UserList(Resource):
     @api.doc("Get all the Users")
     def get(self):
         task_list = TaskModel.find_all()
-        return tasks_schema.dump(task_list)
+        if len(task_list) == 0:
+            return tasks_schema.dump(task_list), 204
+        return tasks_schema.dump(task_list), 200
 
     # is here because doesn't expect an ID
     @api.expect(taskField)
@@ -67,4 +69,4 @@ class UserList(Resource):
         new_task = TaskModel(**task_json)
         new_task.save_to_db()
         logger.info(f"task of Id {new_task.id} added")
-        return task_schema.dump(new_task), 200
+        return task_schema.dump(new_task), 201
