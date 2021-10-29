@@ -1,0 +1,9 @@
+h1 {
+  text-align: center;
+  /* padding: 5%; */
+  color: white;
+}
+
+.container {
+  background: rgb(255, 255, 255, 0.9);
+}

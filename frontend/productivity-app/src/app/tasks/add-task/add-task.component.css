@@ -1,0 +1,26 @@
+form {
+  background: linear-gradient(
+    to right,
+    rgb(2, 39, 2),
+    rgb(4, 58, 4),
+    green,
+    lightgreen
+  );
+  border: 3px solid black;
+  border-radius: 2%;
+  padding: 10px 20px;
+  color: white;
+  margin: 10px;
+  box-shadow: 10px 5px 10px rgb(0, 121, 0);
+  margin-bottom: 5%;
+  /* opacity: .5 */
+}
+
+form h2 {
+  text-align: center;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+}

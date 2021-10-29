@@ -1,0 +1,59 @@
+.task {
+  background: rgba(207, 240, 207, 0.295);
+  border: 2px solid darkgreen;
+  border-radius: 2%;
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task:hover {
+  background-color: rgb(12, 66, 17);
+  color: white;
+}
+
+.task.reminder:hover {
+  border-left: 5px solid darkgreen;
+}
+
+.task:hover p {
+  color: white;
+}
+
+.task.reminder {
+  border-left: 5px solid darkgreen;
+}
+
+.task h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task p {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+fa-icon {
+  margin: 0.1em;
+  font-size: 1.5em;
+  height: 1.1em;
+  width: 1.1em;
+  color: white;
+  border: 2px solid lightblue;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-align: center;
+  vertical-align: center;
+  line-height: 0%;
+}
+
+fa-icon:hover {
+  color: red;
+  background-color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}
