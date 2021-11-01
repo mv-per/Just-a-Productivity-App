@@ -1,0 +1,43 @@
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  text-shadow: 2px 3px 5px purple;
+  font-weight: 900;
+  font-size: 33px;
+  font-style: oblique;
+}
+
+.info {
+  line-height: 0%;
+}
+
+.info span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info span p {
+  padding-left: 2%;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.contact mat-icon {
+  padding-left: 2%;
+  color: black;
+  /* text-shadow: 2px 3px 5px yellow; */
+}
+
+.contact a {
+  padding-left: 1%;
+  text-decoration: none;
+  color: black;
+  font-size: 22px;
+  font-weight: 700;
+  align-items: center;
+}

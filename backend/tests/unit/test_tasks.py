@@ -3,13 +3,28 @@ import json
 import pytest
 
 mock_tasks = [
-    {"text": "Firest task", "day": "Tomorrow Morning", "reminder": False},
-    {"text": "Second task", "day": "Tomorrow Afternoon", "reminder": True},
-    {"text": "Third task", "day": "Tomorrow Night", "reminder": False},
+    {
+        "name": "First task",
+        "day": "2021-10-07T00:00:00",
+        "description": "some1",
+        "reminder": False,
+    },
+    {
+        "name": "Second task",
+        "day": "2021-10-07T00:00:00",
+        "description": "some2",
+        "reminder": True,
+    },
+    {
+        "name": "Third task",
+        "day": "2021-10-07T00:00:00",
+        "description": "some3",
+        "reminder": False,
+    },
 ]
 
 mock_partial_task = [
-    {"text": "A Partial Task", "day": "partial 1"},
+    {"name": "A Partial Task", "day": "2021-10-07T00:00:00"},
     {"day": "A Partial day", "reminder": True},
 ]
 
@@ -30,8 +45,9 @@ def test_add_task(client):
     print(data)
     assert response.status_code == 201
     assert data["id"] == 1
-    assert data["text"] == mock_tasks[0]["text"]
+    assert data["name"] == mock_tasks[0]["name"]
     assert data["day"] == mock_tasks[0]["day"]
+    assert data["description"] == mock_tasks[0]["description"]
     assert data["reminder"] == mock_tasks[0]["reminder"]
 
 
@@ -75,8 +91,9 @@ def test_update_task(client, test_add_task):
     assert response.status_code == 200
     data = json.loads(response.data)
     assert data["id"] == 1
-    assert data["text"] == mock_tasks[1]["text"]
+    assert data["name"] == mock_tasks[1]["name"]
     assert data["day"] == mock_tasks[1]["day"]
+    assert data["description"] == mock_tasks[1]["description"]
     assert data["reminder"] == mock_tasks[1]["reminder"]
 
 
@@ -84,5 +101,5 @@ def test_patch_task(client, test_add_task):
     response = client.patch('api/tasks/1', json=mock_partial_task[0])
     assert response.status_code == 200
     data = json.loads(response.data)
-    assert data["text"] == mock_partial_task[0]["text"]
+    assert data["name"] == mock_partial_task[0]["name"]
     assert data["day"] == mock_partial_task[0]["day"]

@@ -1,0 +1,36 @@
+<form [formGroup]="taskForm">
+    <h1 mat-dialog-title>Add task</h1>
+    <mat-dialog-content >
+        <mat-form-field [ngStyle]="{'width':'100%'}">
+            <mat-label>Task Name</mat-label>
+            <input formControlName="name" name="name" matInput placeholder="Task Name">
+        </mat-form-field>
+
+        <mat-form-field [ngStyle]="{'width':'100%'}">
+            <mat-label>Due date</mat-label>
+            <input formControlName="day" name="day"  matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker color="primary"></mat-datepicker>
+            <mat-hint>(format DD.MM.YYYY)</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field [ngStyle]="{'width':'100%'}">
+            <mat-label>Task Description</mat-label>
+            <textarea formControlName="description" name="description" matInput placeholder="Task Details"></textarea>
+        </mat-form-field>
+
+        <!-- <mat-form-field></mat-form-field> -->
+
+        <mat-checkbox formControlName="reminder" name="reminder" value="checked" (click)="changeValue(reminder)" color="primary">
+            <mat-label>Reminder?</mat-label>
+            <!-- <input formControlName="reminder" type="checkbox"> -->
+        </mat-checkbox>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="onAddTask()" type="submit">Add</button>
+        <button mat-raised-button color="warn" (click)="CancelAddTask()">Cancel</button>
+    </mat-dialog-actions>
+
+</form>

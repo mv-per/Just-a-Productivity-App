@@ -1,0 +1,49 @@
+div {
+  display: flex;
+  background-color: darkmagenta;
+  height: auto;
+  padding: 0.5em;
+  align-items: center;
+}
+
+.About {
+  /* align-items: auto; */
+  font-size: 25px;
+  color: white;
+}
+
+.MyTask {
+  color: white;
+  background-color: green;
+  border: 1px black;
+  border-radius: 5%;
+  font-size: 33px;
+  padding: 0.3em;
+}
+
+.subapps {
+  /* font-size: 16px; */
+  transition-duration: 500ms;
+  /* justify-content: space-between; */
+}
+
+.subapps h2 {
+  display: none;
+}
+
+.subapps:hover {
+  color: white;
+}
+
+.subapps:hover h2 {
+  display: inline;
+  align-items: center;
+  /* vertical-align: middle; */
+}
+
+.vertical {
+  border-left: 3px solid gray;
+  height: 15px;
+  /* position: absolute; */
+  /* left: 50%; */
+}

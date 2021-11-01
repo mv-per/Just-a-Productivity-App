@@ -8,9 +8,10 @@ def get_task_field(api):
     TaskField = api.model(
         'TaskModel',
         {
-            'id': fields.Integer(),
-            'text': fields.String('Tasks TO-DO'),
-            'day': fields.String('Due Date'),
+            # 'id': fields.Integer(),
+            'name': fields.String('Task name'),
+            'day': fields.DateTime(),
+            'description': fields.String('Task Description'),
             'reminder': fields.Boolean(),
         },
     )

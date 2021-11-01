@@ -1,0 +1,40 @@
+<div class="container">
+    <button mat-fab color="warn" routerLink="/">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+          home
+        </mat-icon>
+    </button> 
+
+    <button mat-button class="subapps"  routerLink="/about">
+        <mat-icon class="About">info</mat-icon>
+        <h2> About </h2>
+    </button> 
+
+    <div class="vertical"></div>
+
+
+    <button mat-button class="subapps"  routerLink="/mytasks">
+        <mat-icon class="MyTask">description</mat-icon>
+        <h2> MyTasks </h2>
+    </button> 
+
+    <button mat-button class="subapps" disabled=true routerLink="/mytasks">
+        <mat-icon class="App2">grain</mat-icon>
+        <h2> App2 </h2>
+    </button> 
+
+<!-- 
+    <mat-icon class="subAppsIcon">dns 
+        <button mat-button class="subapps" color="accent" routerLink="/mytasks"></button> 
+    </mat-icon>
+    
+
+    <button mat-button class="subapps" disabled=true routerLink="/">
+        App2
+    </button> 
+
+    <button mat-button class="subapps" disabled=true routerLink="/">
+        App3
+    </button> -->
+
+</div>

@@ -1,0 +1,37 @@
+
+<div>
+
+    <mat-toolbar color="primary">    
+
+        <div class="task-text" >
+            <button mat-icon-button
+                class="infoButton"
+                matTooltip="Task Details"
+                [matTooltipPosition]="'right'"
+                (click)="showDetail = !showDetail">
+                    <mat-icon>menu</mat-icon>
+            </button>
+            {{task.name}}
+        </div>
+        
+        <div class="delButton">
+            <button 
+            mat-mini-fab color="warn"
+            matTooltip="Delete Task"
+            [matTooltipPosition]="'left'"
+            (click)="onDelete(task)"
+            >
+            <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+    
+    <div 
+    *ngIf="showDetail"
+    class="task-details">
+        <p><i>{{task.day}}</i></p>
+        <p>{{task.description}}</p>
+        
+    </div>
+
+</div>

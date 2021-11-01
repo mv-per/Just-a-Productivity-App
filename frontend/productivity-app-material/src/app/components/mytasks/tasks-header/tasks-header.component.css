@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+header h1 {
+  text-align: left;
+  margin-left: 3px;
+  font-size: 33px;
+  font-weight: bold;
+  vertical-align: baseline;
+}
+
+.MyTask {
+  color: white;
+  background-color: green;
+  border: 1px black;
+  border-radius: 5%;
+  font-size: 33px;
+  padding: 0.3em;
+}
+
+.AddTaskButton {
+  margin-left: auto;
+  margin-right: 40px;
+}

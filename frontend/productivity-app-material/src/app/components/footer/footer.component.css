@@ -1,0 +1,33 @@
+footer {
+  margin-top: 10px;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  background-color: purple;
+  color: white;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.contact a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1%;
+  font-size: 20px;
+}
+
+.contact mat-icon {
+  margin-left: 2%;
+  font-size: 20px;
+}
+
+footer div {
+  margin-right: 10%;
+  font-size: 20px;
+}
+
+.contact-item {
+  display: flex;
+}

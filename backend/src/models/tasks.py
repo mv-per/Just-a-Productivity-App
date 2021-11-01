@@ -1,34 +1,46 @@
 from extensions import db
 from typing import List
+from datetime import datetime
+from dateutil import parser
 
 
 class TaskModel(db.Model):
     __tablename__ = "simple_tasks"
 
     id = db.Column(db.Integer, db.Sequence("task_id_seq"), primary_key=True)
-    text = db.Column(db.String(100))
-    day = db.Column(db.String(100))
+    name = db.Column(db.String(100))
+    day = db.Column(db.DateTime(timezone=True), default=datetime.utcnow())
+    description = db.Column(db.Text)
     reminder = db.Column(db.Boolean())
 
     def __init__(self, **kwargs):
-        self.text = kwargs['text']
-        self.day = kwargs['day']
+        self.name = kwargs['name']
+        self.day = parser.isoparse(kwargs['day'])
+        self.description = kwargs['description']
         self.reminder = kwargs['reminder']
+
+    # def _convertDate(self, date):
+    #     return datetime.date.strptime(date, '%Y-%m-%d')
 
     @classmethod
     def update(cls, _id, **kwargs):
         updated_task = cls.query.filter_by(id=_id).first()
 
         try:
-            updated_task.text = kwargs['text']
+            updated_task.name = kwargs['name']
         except:
             pass
         try:
-            updated_task.day = kwargs['day']
+            updated_task.day = parser.isoparse(kwargs['day'])
         except:
             pass
         try:
             updated_task.reminder = kwargs['reminder']
+        except:
+            pass
+
+        try:
+            updated_task.description = kwargs['description']
         except:
             pass
 
