@@ -21,7 +21,7 @@ taskField = get_task_field(api)
 
 # define routes
 @api.route("/<int:taskId>")
-class User(Resource):
+class Task(Resource):
     @api.doc("Get a task by id")
     def get(self, taskId):
         logger.info(f"task of Id {taskId} requested")
@@ -53,7 +53,7 @@ class User(Resource):
 
 
 @api.route("/")
-class UserList(Resource):
+class TaskList(Resource):
     @api.doc("Get all the Users")
     def get(self):
         task_list = TaskModel.find_all()

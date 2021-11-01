@@ -6,13 +6,13 @@ from . import create_app, db
 from config import TestingConfig
 
 # we create a pytest fixture called client() that configures the application for testing and initializes a new database
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def client():
-    db_fd, db_path = tempfile.mkstemp()
+    # db_fd, db_path = tempfile.mkstemp()
     app = create_app(True)
 
     temp_db_file = TestingConfig().DB_PATH
-    print(temp_db_file)
+    # print(temp_db_file)
 
     with app.test_client() as client:
         # with app.app_context():
@@ -20,6 +20,6 @@ def client():
         yield client
 
     # db.close()
-    os.close(db_fd)
-    os.unlink(db_path)
-    os.remove(temp_db_file)
+    # os.close(db_fd)
+    os.unlink(temp_db_file)
+    # os.remove(temp_db_file)
